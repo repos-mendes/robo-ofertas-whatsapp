@@ -1,0 +1,43 @@
+﻿{
+  "name": "robo-ofertas",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Busca ofertas na API do Mercado Livre, afilia os links e publica em grupo de WhatsApp",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "//": "Os scripts chamam `node node_modules/...` em vez dos atalhos de node_modules/.bin porque a política de grupo desta máquina bloqueia a execução dos .cmd shims.",
+  "scripts": {
+    "dev": "node --disable-warning=ExperimentalWarning node_modules/tsx/dist/cli.mjs watch src/index.ts",
+    "start": "node --disable-warning=ExperimentalWarning dist/src/index.js",
+    "build": "node node_modules/typescript/bin/tsc",
+    "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
+    "test": "node --disable-warning=ExperimentalWarning node_modules/tsx/dist/cli.mjs scripts/smoke-test.ts",
+    "sheet:rows": "node --disable-warning=ExperimentalWarning node_modules/tsx/dist/cli.mjs scripts/sheet-check.ts",
+    "ml:auth": "node --disable-warning=ExperimentalWarning node_modules/tsx/dist/cli.mjs scripts/ml-auth.ts",
+    "ml:search": "node --disable-warning=ExperimentalWarning node_modules/tsx/dist/cli.mjs scripts/ml-search.ts",
+    "ml:affiliate-login": "node --disable-warning=ExperimentalWarning node_modules/tsx/dist/cli.mjs scripts/ml-affiliate-login.ts",
+    "wa:login": "node --disable-warning=ExperimentalWarning node_modules/tsx/dist/cli.mjs scripts/wa-login.ts",
+    "wa:groups": "node --disable-warning=ExperimentalWarning node_modules/tsx/dist/cli.mjs scripts/wa-list-groups.ts",
+    "wa:test": "node --disable-warning=ExperimentalWarning node_modules/tsx/dist/cli.mjs scripts/wa-test-message.ts",
+    "playwright:install": "node node_modules/playwright/cli.js install chromium"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "dotenv": "^16.4.7",
+    "fastify": "^5.2.1",
+    "node-cron": "^3.0.3",
+    "pino": "^9.6.0",
+    "playwright": "^1.50.1",
+    "qrcode-terminal": "^0.12.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "@types/node-cron": "^3.0.11",
+    "@types/qrcode-terminal": "^0.12.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

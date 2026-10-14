@@ -1,0 +1,38 @@
+node_modules/
+dist/
+coverage/
+
+# Credenciais e sessões — NUNCA versionar.
+# data/ contém a sessão do WhatsApp (inclusive as cópias arquivadas
+# wa-session.*), o storageState do painel do ML e o banco com os refresh
+# tokens. Vazar qualquer um desses dá acesso direto à sua conta.
+.env
+.env.*
+!.env.example
+data/
+wa-session*/
+auth_info*/
+*storageState*.json
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.pem
+*.key
+
+# Logs têm JIDs do grupo, links de afiliado e histórico de envios.
+logs/
+*.log
+
+# Tarefa do Agendador: traz usuário do domínio e caminho local desta máquina.
+scripts/robo-ofertas-task.xml
+
+# Configurações locais do Claude Code e do editor.
+.claude/settings.local.json
+.vscode/
+.idea/
+
+# Lixo do sistema.
+Thumbs.db
+Desktop.ini
+.DS_Store

@@ -1,0 +1,61 @@
+{
+  "schedule": "0,30 0,7-23 * * *",
+
+  "search": {
+    "siteId": "MLB",
+    "categories": [
+      { "id": "MLB1051", "name": "Celulares e Telefones" },
+      { "id": "MLB1648", "name": "Informática" },
+      { "id": "MLB1000", "name": "Eletrônicos, Áudio e Vídeo" },
+      { "id": "MLB1039", "name": "Câmeras e Acessórios" },
+      { "id": "MLB1276", "name": "Esportes e Fitness" }
+    ],
+    "keywordsPerCategory": 3,
+    "productsPerKeyword": 30,
+    "maxProductsPerCategory": 60
+  },
+
+  "scoring": {
+    "minPrice": 30,
+    "maxPrice": 5000,
+    "minDiscountPct": 15,
+    "historyWindowDays": 30,
+    "minHistoryPoints": 5,
+    "bootstrapMinDiscountPct": 30,
+    "requireFreeShipping": false
+  },
+
+  "dedupe": {
+    "repostCooldownDays": 14,
+    "repostIfPriceDropsPct": 10,
+    "maxPostsPerRun": 1,
+    "maxPostsPerDay": 20,
+    "maxPostsPerSellerPerRun": 2
+  },
+
+  "whatsapp": {
+    "minDelayMs": 55000,
+    "maxDelayMs": 70000
+  },
+
+  "//affiliate": [
+    "O painel do ML não é uma API: URL e seletores mudam sem aviso, por isso ficam aqui",
+    "e não no código. Se a afiliação parar de funcionar, rode `npm run ml:affiliate-login`",
+    "com o navegador visível, inspecione o painel e ajuste os seletores abaixo.",
+    "Os seletores são tentados em ordem; o primeiro visível vence. A lista já inclui",
+    "fallbacks genéricos no código, então deixar vazio ainda tem chance de funcionar."
+  ],
+  "affiliate": {
+    "enabled": true,
+    "panelUrl": "https://www.mercadolivre.com.br/l/afiliados-gerar-link",
+    "generateTimeoutMs": 20000,
+    "selectors": {
+      "urlInput": ["#url-input", "input[name='url']", "input[data-testid='link-input']"],
+      "generateButton": [
+        "button:has-text('Gerar')",
+        "button:has-text('Criar link')",
+        "button[type='submit']"
+      ]
+    }
+  }
+}
